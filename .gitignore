@@ -1,0 +1,32 @@
+cloud_env.bat
+uninstaller.ext
+glamira_ubl_oct2019_nov2019.tar.gz
+
+glamira_ubl_oct2019_nov2019/
+
+install_mode
+supercloud-16x16.ico
+uninstaller.exe
+cloud_env.bat
+
+# virtual enviroment
+my_venv/
+
+# cloud sdk 
+google-cloud-sdk/
+
+# mongodb collection 
+product_name_glamira/collection/
+
+# mongodb collection 
+transform_jsonl/collection/
+
+# mongodb collection 
+IP2Location-Python-master/collection/
+
+# IP2Location
+IP2Location-Python-master/data/need
+
+
+###############  dbt   ###########
+
