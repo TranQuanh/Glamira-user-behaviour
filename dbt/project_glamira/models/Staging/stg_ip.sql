@@ -4,7 +4,7 @@ WITH ip_source AS(
 ),
 ip_rename AS(
     SELECT
-        ip as ip_key,
+        ip as territory_id ,
         country_code,
         country_name,
         region_name,
@@ -18,7 +18,7 @@ ip_rename AS(
 ),
 ip__excecuted_NULL AS(
     SELECT
-        ip_key,
+        territory_id,
         NULLIF(country_code,"-") as country_code,
         NULLIF(country_name,"-") as country_name,
         NULLIF(region_name,"-") as region_name,
@@ -31,7 +31,7 @@ ip__excecuted_NULL AS(
 ),
 ip__cast_type AS(
     SELECT
-        ip_key,
+        territory_id,
         country_code,
         country_name,
         region_name,
@@ -46,7 +46,7 @@ SELECT *
 FROM ip__cast_type
 UNION ALL
 SELECT
-    "0" as ip_key,
+    "0" as territory_id,
     "Undefind" as country_code,
     "Undefind" as country_name,
     "Undefind" as region_name,
@@ -57,7 +57,7 @@ SELECT
     "Undefind" as time_zone
 UNION ALL
 SELECT
-    "-1" as ip_key,
+    "-1" as territory_id,
     "Invalid" as country_code,
     "Invalid" as country_name,
     "Invalid" as region_name,

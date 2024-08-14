@@ -14,7 +14,7 @@ WITH behaviour_source AS(
 ),
 behaviour__rename AS(
     SELECT 
-        behaviour._id as behaviour_key,
+        behaviour._id as behaviour_id,
         behaviour.time_stamp,
         behaviour.ip,
         behaviour.user_agent,
@@ -84,9 +84,9 @@ behaviour__rename AS(
 ),
 behaviour__excecuted_NULL AS(
     SELECT 
-        behaviour.behaviour_key,
+        behaviour.behaviour_id,
         behaviour.time_stamp,
-        NULLIF(behaviour.ip,"") as ip,
+        COALESCE(NULLIF(behaviour.ip,""),"0") as ip,
         NULLIF(behaviour.user_agent,"") as user_agent,
         NULLIF(behaviour.resolution,"") as resolution,
         COALESCE(NULLIF(behaviour.user_id_db,""),"0") as user_id_db,
@@ -102,7 +102,7 @@ behaviour__excecuted_NULL AS(
         NULLIF(behaviour.utm_source,"") as utm_source,
         NULLIF(behaviour.utm_medium,"") as utm_medium,
         NULLIF(behaviour.collection,"") as collection,
-        NULLIF(behaviour.product_id,"") as product_id,
+        COALESCE(NULLIF(behaviour.product_id,""),"0") as product_id,
         NULLIF(behaviour.price,"") as price,
         NULLIF(behaviour.currency,"") as currency,
         behaviour.is_paypal,
@@ -154,7 +154,7 @@ behaviour__excecuted_NULL AS(
 ),
 behaviour__cast_type AS(
     SELECT 
-        behaviour.behaviour_key,
+        behaviour.behaviour_id,
         behaviour.time_stamp,
         behaviour.ip,
         behaviour.user_agent,
