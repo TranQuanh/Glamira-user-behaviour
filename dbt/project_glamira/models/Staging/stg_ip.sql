@@ -66,3 +66,4 @@ SELECT
     999 as longtitude,
     "-1" as zip_code,
     "Invalid" as time_zone
+    

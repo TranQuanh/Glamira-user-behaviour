@@ -28,5 +28,9 @@ SELECT *
 FROM stg_alloy_convert
 UNION ALL
 SELECT
+    0 AS alloy_id,
+    "Undefine" AS value_label
+UNION ALL
+SELECT
     -2 as alloy_id,
     "Not include" as value_label

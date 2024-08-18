@@ -104,7 +104,7 @@ behaviour__excecuted_NULL AS(
         NULLIF(behaviour.collection,"") as collection,
         COALESCE(NULLIF(behaviour.product_id,""),"0") as product_id,
         NULLIF(behaviour.price,"") as price,
-        NULLIF(behaviour.currency,"") as currency,
+        COALESCE(NULLIF(behaviour.currency,""),"Undefine") as currency,
         behaviour.is_paypal,
         ARRAY(
             SELECT AS STRUCT
@@ -129,10 +129,10 @@ behaviour__excecuted_NULL AS(
         COALESCE(NULLIF(behaviour.order_id,""),"0") as order_id,
         ARRAY(
             SELECT AS STRUCT
-                cart_products.product_id ,
+                COALESCE(cart_products.product_id,0) AS product_id ,
                 cart_products.amount,
                 NULLIF(cart_products.price,"") as price,
-                NULLIF(cart_products.currency,"") as currency,
+                COALESCE(NULLIF(cart_products.currency,""),"Undefine") as currency,
                 ARRAY(
                     SELECT AS STRUCT
                         NULLIF(cart_products_option.option_label,"") as option_label,

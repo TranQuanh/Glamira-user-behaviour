@@ -23,5 +23,4 @@ SELECT
 UNION ALL 
 SELECT
     -1 as product_id,
-    "Invalid" as product_name
-    
+    "Invalid" as product_name 
