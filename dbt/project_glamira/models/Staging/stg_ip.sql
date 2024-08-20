@@ -19,14 +19,14 @@ ip_rename AS(
 ip__excecuted_NULL AS(
     SELECT
         territory_id,
-        NULLIF(country_code,"-") as country_code,
-        NULLIF(country_name,"-") as country_name,
-        NULLIF(region_name,"-") as region_name,
-        NULLIF(city_name,"-") as city_name,
+        COALESCE(NULLIF(country_code,"-"),"Undefine") as country_code,
+        COALESCE(NULLIF(country_name,"-"),"Undefine") as country_name,
+        COALESCE(NULLIF(region_name,"-"),"Undefine") as region_name,
+        COALESCE(NULLIF(city_name,"-"),"Undefine") as city_name,
         latitude,
         longtitude,
-        NULLIF(zip_code,"-") as zip_code ,
-        NULLIF(time_zone,"-") as time_zone 
+        COALESCE(NULLIF(zip_code,"-"),"Undefine") as zip_code ,
+        COALESCE(NULLIF(time_zone,"-"),"Undefine") as time_zone 
     FROM ip_rename
 ),
 ip__cast_type AS(

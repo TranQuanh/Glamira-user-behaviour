@@ -30,7 +30,7 @@ WITH stg_behaviour_checkout_success_source AS(
 stg_behaviour_checkout_success_convert AS(
     SELECT
         log_id,
-        DATE(time_stamp) AS date_id,
+        DATE(time_stamp) AS date,
         TIME(time_stamp) AS order_time,
         territory_id,
         user_agent,
@@ -62,7 +62,7 @@ stg_behaviour_checkout_success_convert AS(
 stg_behaviour_checkout_success_excecuted_NULL AS(
     SELECT
         log_id,
-        date_id,
+        date AS date_id,
         order_time,
         territory_id ,
         user_agent,

@@ -7,7 +7,7 @@ WITH dim_date__generate as (
 
 dim_date__enrich as (
 SELECT
-  date  as date_id,
+  date AS date_id,
   FORMAT_DATE("%F",date) as full_date,
   FORMAT_DATE("%A",date) as day_of_week,
   FORMAT_DATE("%a",date) as day_of_week_short,

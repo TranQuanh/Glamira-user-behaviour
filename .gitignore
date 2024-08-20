@@ -16,7 +16,7 @@ my_venv/
 google-cloud-sdk/
 
 # mongodb collection 
-product_name_glamira/collection/
+crawl_data/collection/
 
 # mongodb collection 
 transform_jsonl/collection/
@@ -24,6 +24,8 @@ transform_jsonl/collection/
 # mongodb collection 
 IP2Location-Python-master/collection/
 
+#mogoddb collecion
+crawl_data/crawl_photo/collection
 # IP2Location
 IP2Location-Python-master/data/need
 
